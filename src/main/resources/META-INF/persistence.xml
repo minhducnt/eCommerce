@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+  <persistence-unit name="dhs" transaction-type="RESOURCE_LOCAL">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+    <class>Model.Account</class>
+    <class>Model.Address</class>
+    <class>Model.Cart</class>
+    <class>Model.CartItem</class>
+    <class>Model.Category</class>
+    <class>Model.CategoryProduct</class>
+    <class>Model.Delivery</class>
+    <class>Model.OrderDetail</class>
+    <class>Model.OrderItem</class>
+    <class>Model.Product</class>
+    <class>Model.Review</class>
+    <class>Model.Shop</class>
+    <class>Model.ShopDelivery</class>
+    <class>Model.Tag</class>
+    <class>Model.TagProduct</class>
+    <class>Model.Trans</class>
+    <class>Model.Transistion</class>
+    <class>Model.UserAddress</class>
+      <class>Model.UserAddress</class>
+
+      <properties>
+      <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/dhs"/>
+      <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+      <property name="hibernate.connection.username" value="root"/>
+      <property name="hibernate.connection.password" value="Minhhoang1511"/>
+      <property name="hibernate.show_sql" value="true"/>
+      <property name="hibernate.hbm2ddl.auto" value="update"/>
+    </properties>
+  </persistence-unit>
+</persistence>
