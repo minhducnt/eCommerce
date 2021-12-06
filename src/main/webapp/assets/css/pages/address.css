@@ -1,0 +1,104 @@
+.Account_StylesAccountLayoutInner {
+	flex: 2 2 0%;
+	padding-top: 5px;
+	padding-left: 8px;
+}
+
+.HeadingContent {
+	font-size: 30px;
+	line-height: 21px;
+	font-weight: 300;
+	margin: 10px 0 15px;
+}
+
+.inputdiachi {
+	font-size: 15px;
+	line-height: 21px;
+	font-weight: 300;
+	margin-left: 160px;
+	margin-bottom: 5px;
+}
+
+.Input-styles1 {
+	position: relative;
+	padding: 20px 0 0;
+	width: 50%;
+	margin-left: 120px;
+	text-align: center;
+	font-size: 15px;
+	font-weight: 300;
+}
+
+.btn-submitt {
+	width: 150px;
+	height: 50px;
+	text-decoration: none;
+	border: none;
+	border-radius: 2px;
+	font-size: 1.5rem;
+	cursor: pointer;
+	outline: none;
+	color: var(--text-color);
+	background: #8a2be2;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	padding: 0 5px;
+	text-align: center;
+	margin: 0px 0px 30px;
+	font-weight: bold;
+}
+
+.btn-submitt:hover {
+	color: rgba(255, 255, 255, 0.7);
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.newaddadress {
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	text-size-adjust: 100%;
+	box-sizing: border-box;
+	text-align: center;
+	padding: 20px 0;
+	margin-bottom: 5px;
+	border: 2px dotted #000000;
+}
+
+.Content_StylesNav {
+	background-color: white;
+	padding: 30px 20px;
+	border-radius: 4px;
+	display: flex;
+}
+
+.noaddress-title {
+	font-family: Roboto, Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	line-height: 1.5;
+	margin-left: 420px;
+}
+
+._1address {
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+.addresslist {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.info-address {
+	margin-right: auto;
+}
+
+.address-name {
+	font-size: 15px;
+}
+
+.phone-number {
+	font-size: 15px;
+}

@@ -1,0 +1,29 @@
+
+form {
+    margin-top: 0em;
+    width: 100%;
+    display: block;
+}
+.bangmua1{
+    font-family: Roboto,Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.15;
+    text-size-adjust: 100%;
+    box-sizing: border-box;
+    background-color: rgb(255, 255, 255);
+    border-radius: 4px;
+    padding: 1px;
+}
+.comment1{
+    width: 100%;
+}
+.cart{
+    width: 100%;
+    margin: auto;
+}
+thead{
+    width: 100%;
+}
+td{
+    text-align: center;
+}
