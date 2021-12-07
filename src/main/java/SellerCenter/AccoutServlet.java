@@ -22,10 +22,11 @@ public class AccoutServlet extends HttpServlet {
         if (request.getCharacterEncoding() == null) {
             request.setCharacterEncoding("UTF-8");
         }
+
         String action = request.getParameter("action");
         Account acc = (Account) request.getSession().getAttribute("account");
+        Shop shop = shopIO.getShopbyUserID(acc.getId());
         HttpSession session = request.getSession();
-        Shop shop;
         if (action == null) {
             action = "account"; // default action
         }
@@ -47,16 +48,17 @@ public class AccoutServlet extends HttpServlet {
             int bank = Integer.parseInt(bank1);
             Timestamp lastupdate = new Timestamp(System.currentTimeMillis());
             long numberProduct = Long.parseLong(numberProduct1);
-            shop = new Shop(shopCity,shopStreet,shopDistrict,shopName,numberProduct,acc,lastupdate,bank);
-            shopIO.insert(shop);
-            acc.setShopId(shop.getId());
-            accountIO.update(acc);
-            request.setAttribute("account", acc);
-            request.getSession().setAttribute("shop", shop);
-            request.getSession().setAttribute("account", acc);
+            shop.setShopname(shopName);
+            shop.setBankId(bank);
+            shop.setCity(shopCity);
+            shop.setDistrict(shopDistrict);
+            shop.setLastUpdate(lastupdate);
+            shop.setNumberProduct(numberProduct);
+            shop.setStreetName(shopStreet);
+            shopIO.update(shop);
         }
-
-
+        request.getSession().setAttribute("shop", shop);
+        request.getSession().setAttribute("account", acc);
 
         getServletContext()
                 .getRequestDispatcher(url)

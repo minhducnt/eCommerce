@@ -68,8 +68,6 @@
                     <%} else {%>
                     <!-- Đã đăng nhập -->
                     <li class="header__navbar-item header__navbar-user">
-                        <img src="${pageContext.request.contextPath}/images/${account.avatar}"
-                             class="header__navbar-user-img" alt="">
                         <% if (session.getAttribute("username") == null || session.getAttribute("loggedInUser") == null) {%>
                         <span class="header__navbar-item--strong header__navbar-user-name">
                             User name</span>
@@ -200,14 +198,7 @@
                         <a href="#danhgia" class="review product-tab-link non-underline-link"> Đánh giá </a>
                     </div>
                 </div>
-                <div id="thongtin" class="col-md-12 product-content-wrap">
-                    <p class="text-content">
-                        <span class="text-1">Mũ fullface Yohe 967 2 kính</span> là dòng
-                        mũ mang phong cách Châu Âu mạnh mẽ. Chiếc mũ này nổi bật ở chất
-                        liệu vỏ mũ, chất liệu mặt kính mũ, kiểu dáng thời trang. Tạo nên
-                        một dòng mũ bảo hiểm Yohe đậm chất chơi.
-                    </p>
-                </div>
+
                 <div id="danhgia" disabled class="col-md-12 product-content-wrap">
                     <%--@elvariable id="nhanxet" type="java.util.List"--%>
                     <c:forEach items="${reviewlist}" var="elements">

@@ -63,8 +63,8 @@ public class cartItemIO {
         EntityTransaction transaction = em.getTransaction();
         try {
             em.getTransaction().begin();
-            return em.createQuery("SELECT c.amount,c.cartByCartId.id," +
-                    "c.cartByCartId.accountByAccountId.id," +
+            return em.createQuery("SELECT c.amount,c.cartByCartId.id" +
+                    ",c.cartByCartId.accountByAccountId.id," +
                     "c.productByProductId.title,c.price," +
                     "c.discount,c.price,c.content,c.id, c.productByProductId.id FROM" +
                     " CartItem c WHERE c.cartByCartId.id =?1").setParameter(1,cartId).getResultList();

@@ -9,11 +9,10 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private short quality;
-    private double price = sumPrice();
+    private double price;
     private double discount;
     private int amount;
     private String content;
-
     @ManyToOne
     private Cart cartByCartId;
 
@@ -43,7 +42,10 @@ public class CartItem {
     public void setPrice(double price) {
         this.price = price;
     }
-
+    public void setpriceproduct(int amount)
+    {
+        this.price = this.productByProductId.getPrice()*amount;
+    }
     public double getDiscount() {
         return discount;
     }
@@ -58,9 +60,8 @@ public class CartItem {
 
     public void setAmount(int amount) {
         this.amount = amount;
-//        price = sumPrice();
+      //this.price = amount
     }
-
     public String getContent() {
         return content;
     }
@@ -99,7 +100,7 @@ public class CartItem {
         return result;
     }
     public double sumPrice(){
-        return  amount*price;
+        return  amount * productByProductId.getPrice();
     }
     public void setProductByProductId(Product productByProductId) {
         this.productByProductId = productByProductId;

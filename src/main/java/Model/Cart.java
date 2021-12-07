@@ -8,7 +8,7 @@ import java.util.Objects;
 @Entity
 public class Cart {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
     private Short status;
     private int phone;
@@ -29,7 +29,7 @@ public class Cart {
         return cartItemsById.size();
     }
     public void addItem(CartItem item) {
-       long code = item.getProducts().getId();
+        long code = item.getProducts().getId();
         int amount = item.getAmount();
         for (int i = 0; i < cartItemsById.size(); i++) {
             CartItem cartItem = (CartItem) cartItemsById.toArray()[i];

@@ -17,15 +17,15 @@ public class shopIO {
             transaction.begin();
             em.persist(shop);
             transaction.commit();
-        } finally {
-            if (transaction.isActive()){
-                transaction.rollback();
-            }
+        }catch (Exception e){
+            transaction.rollback();
+        } finally
+        {
             em.close();
         }
     }
 
-    public void update (Shop shop)
+    public static void update(Shop shop)
     {EntityManager em = emf.createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         try {

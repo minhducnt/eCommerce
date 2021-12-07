@@ -71,7 +71,7 @@
                                     </div>
                                 </div>
                                 <div class="form-control">
-                                    <label class="input-label">Chất lượng</label>
+                                    <label class="input-label">Chất lượng (1 đến 5)</label>
                                     <div>
                                         <label>
                                             <input type="text" name="productQuality"
@@ -80,7 +80,7 @@
                                     </div>
                                 </div>
                                 <div class="form-control">
-                                    <label class="input-label">Trạng thái</label>
+                                    <label class="input-label">Trạng thái (0 hoặc 1)</label>
                                     <div>
                                         <label>
                                             <input type="text" name="productstatus"

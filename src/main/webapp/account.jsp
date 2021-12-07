@@ -253,7 +253,7 @@
                                     </div>
                                 </div>
                                 <div class="form-control">
-                                    <label class="input-label">Trạng thái</label>
+                                    <label class="input-label">Trạng thái (0 hoặc 1)</label>
                                     <div>
                                         <label>
                                             <input type="text" name="address" placeholder="Nhập trạng thái của shop"

@@ -102,7 +102,6 @@ public class ProductDetailServlet extends HttpServlet {
     }
 
     private void AddItem (HttpServletRequest request) {
-        request.getSession();
         Account acc = (Account) request.getSession().getAttribute("account");
         String amount1 = request.getParameter("sl");
         int amount = Integer.parseInt(amount1);
@@ -116,12 +115,14 @@ public class ProductDetailServlet extends HttpServlet {
         if (cartItem == null) {
             CartItem Item = new CartItem();
             Item.setAmount(amount);
-            Item.setCartByCartId(cart);
+            Item.setPrice(product.getPrice());
             Item.setProductByProductId(product);
+            Item.setCartByCartId(cart);
             cartItemIO.insert(Item);
         }
         else {
             cartItem.setAmount(amount);
+            cartItem.setPrice(amount*product.getPrice());
             cartItemIO.update(cartItem);
         }
     }

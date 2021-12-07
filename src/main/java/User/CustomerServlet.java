@@ -1,7 +1,11 @@
 package User;
 
 import Data.accountIO;
+import Data.cartIO;
+import Data.shopIO;
 import Model.Account;
+import Model.Cart;
+import Model.Shop;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -33,27 +37,13 @@ public class CustomerServlet extends HttpServlet {
         String action = request.getParameter("action");
         HttpSession session = request.getSession();
         Account  account = (Account) request.getSession().getAttribute("account");
+        Shop    shop =  new Shop();
+         Cart  cart = new Cart();
         if (action == null) {
             action = "join";
         }
         if (action.equals("join")) {
             action = "customer";
-        }
-        else if(action.equals("upimage"))
-        {
-            String uploadfolder =  getServletContext().getRealPath("/images");
-
-            Path uploadPath = Paths.get(uploadfolder);
-            if(!Files.exists(uploadPath))
-            {
-                Files.createDirectory(uploadPath);
-            }
-            Part imagePart = request.getPart("photo");
-            String imageFileName = Paths.get(imagePart.getSubmittedFileName()).getFileName().toString();
-            imagePart.write(Paths.get(uploadPath.toString(),imageFileName).toString());
-            account.setAvatar(imageFileName);
-            accountIO.update(account);
-            session.setAttribute("avatar",account.getAvatar());
         }
         else if (action.equals("add")) {
 
@@ -98,8 +88,8 @@ public class CustomerServlet extends HttpServlet {
                 account.setShopId(0);
                 account.setUsername(username);
                 accountIO.update(account);
-            }
 
+            }
             else {
                 account.setBirthday(birthday);
                 account.setGender(Gender);
@@ -109,15 +99,24 @@ public class CustomerServlet extends HttpServlet {
                 account.setShopId(0);
                 account.setUsername(username);
                 accountIO.update(account);
+                cart.setAccountByAccountId(account);
+                cartIO.insert(cart);
+                shop.setAccountByAccountId(account);
+                shopIO.insert(shop);
+                account.setShopId(shop.getId());
+                accountIO.update(account);
             }
             url = "/usercenter.jsp";
             request.getSession().setAttribute("account", account);
+            request.getSession().setAttribute("shop", shop);
+           //request.getSession().setAttribute("cart", cart);
+            request.setAttribute("cart", cart);
             request.setAttribute("account", account);
             request.setAttribute("avatar", account.getAvatar());
             request.setAttribute("username", username);
             if(request.getParameter("message2")!=null)
-            {request.setAttribute("message2", message2);
-
+            {
+                request.setAttribute("message2", message2);
             }
             request.getSession().setAttribute("username", account.getUsername());
         }

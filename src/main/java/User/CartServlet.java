@@ -41,9 +41,9 @@ public class CartServlet extends HttpServlet{
                         .getRequestDispatcher(url)
                         .forward(request, response);
             }
-            Account acc = (Account) session.getAttribute("account");
+            Account acc = (Account) request.getSession().getAttribute("account");
             long Id = acc.getId();
-            Cart cart = (Cart) cartIO.selectCart(Id);
+            Cart cart = (Cart)cartIO.selectCart(acc.getId());
             List<?> listcart = null;
             List<?> listaddress = addressIO.selectUserAdress(Id);
 
@@ -66,9 +66,10 @@ public class CartServlet extends HttpServlet{
                 if (item != null) {
                     item.setId(itemId);
                     item.setAmount(amount);
+                    item.setpriceproduct(amount);
                     cartItemIO.update(item);
                 }
-            Account acc = (Account) session.getAttribute("account");
+            Account acc = (Account) request.getSession().getAttribute("account");
             long Id = acc.getId();
             Cart cart = (Cart) cartIO.selectCart(Id);
             List<?> listcart = null;

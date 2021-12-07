@@ -10,7 +10,6 @@ public class Shop {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Basic
     private String shopname;
     private String streetName;
     private String city;

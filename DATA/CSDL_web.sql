@@ -4,27 +4,27 @@ use dhs;
 
 create table Account (
 	id bigint primary key,
-	username char(100) not null,
+	username char(100),
     passwordHash char(255) not null,
-    phone char(10) not null,
-    gender bit default 0 not null,
-    email char(255),
+    phone char(10) ,
+    gender bit default 0 ,
+    email char(255) not null,
     shopid bigint,
     birthday date,
-    role bit default 0 not null,
+    role bit default 0,
     LAST_UPDATE datetime(0),
     avatar char(255)
 );
 
 create table Shop (
 	id bigint primary key,
-    accountId bigint not null,
-    street_name char(255) not null,
+    accountId bigint,
+    street_name char(255) default "" ,
     city char(150),
     district char(100),
-    bank_id	int not null,
-    number_product bigint not null,
-    status smallint not null default 0,
+    bank_id	int ,
+    number_product bigint ,
+    status smallint default 0,
     LAST_UPDATE datetime(0),
     
     foreign key (accountId) references Account(id)
@@ -42,11 +42,11 @@ create table Cart (
 	id bigint primary key,
     status		smallint(6),
     accountId 	bigint,
-    phone 		int(10) not null,
-    street_name char(255) not null,
-    city		char(150) not null,
-    district 	char(100) not null,
-    delivery	char(100) not null,
+    phone 		int(10) ,
+    street_name char(255) ,
+    city		char(150) ,
+    district 	char(100) ,
+    delivery	char(100),
     content 	text,
     
     foreign key (accountId) references Account(id)
@@ -55,7 +55,7 @@ create table Cart (
 create table Product (
 	id bigint primary key,
     status smallint, #have permission form admin <1> : have permission <0> : don't have permission <3> had deleted
-    shopId bigint not null,
+    shopId bigint,
     title char(255) not null,
     quality	smallint not null,
     price	float not null,

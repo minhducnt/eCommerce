@@ -78,9 +78,9 @@ public class reviewIO {
     {
         EntityManager em = emf.createEntityManager();
         try {
-            return em.createQuery("SELECT p.productByProductId.id as MaDonHang, p.title as TieuDe," +
-                    "p.productByProductId.title as TenSP\n" +
-                    ",p.accountByAccountId.username as TenKhachHang,p.content as NhanXet, p.rating FROM " +
+            return em.createQuery("SELECT p.productByProductId.id , p.title," +
+                    "p.productByProductId.title  " +
+                    ",p.accountByAccountId.username ,p.content , p.rating FROM " +
                     "Review p  WHERE p.productByProductId.id =?1").setParameter(1,ID).getResultList();
 
         } catch (Exception e)
